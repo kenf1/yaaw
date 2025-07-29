@@ -1,5 +1,5 @@
-name: yaaw
-description: Yet another actions workflow
+name: yaaw greet
+description: Yet another actions workflow - greet
 
 inputs:
   person:

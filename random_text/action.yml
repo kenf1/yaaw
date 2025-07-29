@@ -1,0 +1,12 @@
+name: yaaw random text
+description: Yet another actions workflow - random text
+
+inputs:
+  length:
+    description: "Length of output (1-50)"
+    required: true
+    default: "21"
+
+runs:
+  using: node20
+  main: src/index.js
