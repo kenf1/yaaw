@@ -1,0 +1,6 @@
+name: yaaw
+description: Yet another actions workflow
+
+runs:
+  using: node24
+  main: src/index.js
