@@ -1,6 +1,12 @@
 name: yaaw
 description: Yet another actions workflow
 
+inputs:
+  person:
+    description: "Person to greet"
+    required: true
+    default: "World"
+
 runs:
   using: node24
   main: src/index.js
