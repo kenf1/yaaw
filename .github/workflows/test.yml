@@ -12,7 +12,11 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - uses: ./ #default param
-      - uses: ./
+
+      - uses: ./greet
         with:
           person: "Me"
+
+      - uses: ./random_text
+        with:
+          length: 19
