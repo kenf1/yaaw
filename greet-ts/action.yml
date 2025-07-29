@@ -1,0 +1,12 @@
+name: yaaw greet-ts
+description: Yet another actions workflow - greet-ts
+
+inputs:
+  person:
+    description: "Person to greet"
+    required: true
+    default: "Typescript"
+
+runs:
+  using: node20
+  main: dist/index.js

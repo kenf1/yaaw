@@ -1,4 +1,4 @@
-name: Test
+name: Test-ts
 
 on:
   workflow_dispatch:
@@ -14,10 +14,13 @@ jobs:
           node-version: 20
       - run: npm ci
 
-      - uses: ./greet
-        with:
-          person: "Me"
+      - name: Build greet-ts action
+        run: |
+          cd greet-ts
+          npm ci
+          npm run build
+          cd ..
 
-      - uses: ./random_text
+      - uses: ./greet-ts
         with:
-          length: 19
+          person: "You"
