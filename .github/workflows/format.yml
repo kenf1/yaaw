@@ -1,0 +1,35 @@
+name: Format JS + TS
+
+on:
+  push:
+    branches:
+      - main
+      - test
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Prettier on JS + TS files
+        run: npx prettier --write "**/*.{js,ts}"
+
+      - name: Commit formatted
+        run: |
+          git config --local user.email "github-actions[bot]"
+          git config --local user.name "github-actions[bot]"
+          git add .
+
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: format JS/TS files"
+            git push -u origin main
+          else
+            echo "No changes to commit"
+          fi

@@ -3,6 +3,8 @@ name: Test-ts
 on:
   workflow_dispatch:
   push:
+    branches:
+      - test
 
 jobs:
   test:
@@ -12,6 +14,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - run: npm ci
 
       - name: Build greet-ts action
